@@ -25,4 +25,7 @@ use ExtUtils::MakeMaker;
 WriteMakefile(
     'NAME'	=> 'PException',
     'VERSION_FROM' => 'PException.pm', # finds $VERSION
+    clean	=> {
+	FILES => "*~"
+    },
 );

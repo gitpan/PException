@@ -4,8 +4,6 @@
 #
 #    This file is part of PException.
 #
-#    This program is part of the GNU project, released under the aegis of GNU
-#
 #    PException is free software; you can redistribute it and/or modify
 #    it under the terms of the GNU General Public License as published by
 #    the Free Software Foundation; either version 2 of the License, or
@@ -29,7 +27,7 @@
 # Change 1..1 below to 1..last_test_to_print .
 # (It may become useful if the test is moved to ./t subdirectory.)
 
-BEGIN { $| = 1; print "1..1\n"; }
+BEGIN { $| = 1; print "1..9\n"; }
 END {print "not ok 1\n" unless $loaded;}
 use PException;
 $loaded = 1;
@@ -44,18 +42,18 @@ print "ok 1\n";
 $|	= 1;
 
 package Ex1;
-@ISA	= qw( Exception );
+@ISA	= qw( PException );
 
 package Ex2;
-@ISA	= qw( Exception );
+@ISA	= qw( PException );
 
 package Ex3;
-@ISA	= qw( Exception );
+@ISA	= qw( PException );
 
 sub	handleException	{ print "ok ${$_[0]}\n" }
 
 package Ex4;
-@ISA	= qw( Exception );
+@ISA	= qw( PException );
 
 sub	handleException	{ print "ok ${$_[0]}\n" }
 
@@ -101,7 +99,6 @@ addFlyingHandler Ex4();
 try {
   try {
 	throw( new Ex4( 8 ) );
-	print "Hello\n";
   };
   throw( new Ex3( 9 ) );
   print "ko 8\n";
