@@ -26,7 +26,7 @@ use Debug ( 0 );
 
 require Exporter;
 
-$VERSION= "2.3";
+$VERSION= "2.3.1";
 
 =pod
 
